@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Sou Community | 名古屋・天塚の小さなカフェ & コミュニティスペース</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Sou Community（ソウ・コミュニティ）は、名古屋市西区・天塚町に生まれる小さなカフェ兼コミュニティスペースです。コーヒーと日常の会話を通して、地域の人と海外の人がゆるやかにつながる場所を目指しています。" />
+  <style>
+    :root {
+      --bg: #f5f1ea;
+      --bg-alt: #fffdf9;
+      --accent: #c08a4d;
+      --accent-dark: #986535;
+      --text: #3b3126;
+      --text-strong: #2b241c;
+      --muted: #8a7b66;
+      --border: #e0d6c6;
+      --radius: 14px;
+      --radius-lg: 20px;
+      --shadow: 0 8px 20px rgba(0, 0, 0, .08);
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, .06);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--accent-dark);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* =========================
+   Header / Nav
+========================= */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(245, 241, 234, .95);
+      border-bottom: 1px solid rgba(224, 214, 198, .8);
+    }
+
+    .nav-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: .6rem 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .8rem;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-size: .9rem;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      white-space: nowrap;
+    }
+
+    .logo-mark {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .7rem;
+      color: var(--accent);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.2rem;
+      padding: 0;
+      margin: 0;
+      font-size: .85rem;
+      flex-wrap: wrap;
+      /* 小さい画面で自然に折り返す */
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--accent-dark);
+    }
+
+    .lang-toggle {
+      margin-left: 1rem;
+      font-size: .75rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      padding: .15rem .5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: .3rem;
+      background: #fff;
+    }
+
+    .lang-toggle button {
+      border: none;
+      background: transparent;
+      padding: .1rem .4rem;
+      font-size: .72rem;
+      cursor: pointer;
+      color: var(--muted);
+    }
+
+    .lang-toggle button.active {
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+    }
+
+    /* =========================
+   Layout / Sections
+========================= */
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 1.5rem 1.2rem 3rem;
+    }
+
+    section {
+      margin-bottom: 2.4rem;
+      background: var(--bg-alt);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.4rem;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(224, 214, 198, .8);
+    }
+
+    section h2 {
+      margin-top: 0;
+      margin-bottom: .4rem;
+      font-size: 1.2rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .section-subtitle {
+      font-size: .9rem;
+      color: var(--text);
+      margin-bottom: .8rem;
+      font-weight: 600;
+    }
+
+    /* =========================
+   Hero
+========================= */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 1.8rem;
+      margin-top: 1.5rem;
+      margin-bottom: 2.5rem;
+      align-items: center;
+    }
+
+    .hero-copy h1 {
+      font-size: 2.1rem;
+      margin: 0 0 .8rem;
+      letter-spacing: .06em;
+    }
+
+    .hero-copy p {
+      margin: .4rem 0;
+      color: var(--muted);
+    }
+
+    .hero-buttons {
+      margin-top: 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .7rem;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      border-radius: 999px;
+      font-size: .85rem;
+      padding: .5rem 1.1rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: .3rem;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      border-color: var(--accent-dark);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--accent-dark);
+      border-color: var(--border);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent-dark);
+    }
+
+    .hero-image {
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: #ddd;
+      min-height: 230px;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* =========================
+   Text blocks
+========================= */
+    .lang-block {
+      margin-top: .8rem;
+    }
+
+    .lang-label {
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: .2rem;
+      margin-bottom: .4rem;
+    }
+
+    .lang-block p {
+      margin: .4rem 0;
+      font-size: .92rem;
+    }
+
+    .bullet-list {
+      padding-left: 1.2rem;
+      margin: .2rem 0 .4rem;
+      font-size: .92rem;
+    }
+
+    .bullet-list li {
+      margin-bottom: .2rem;
+    }
+
+    /* =========================
+   2-column layout (ABOUT / CAFÉ etc.)
+========================= */
+    .two-column {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 1.4rem;
+      align-items: start;
+    }
+
+    /* 写真カラム：開閉メニューで左が伸びても写真が変に中央寄りにならない */
+    .photo-column {
+      align-self: start;
+    }
+
+    /* カード共通 */
+    .photo-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: #fff;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(224, 214, 198, .7);
+    }
+
+    /* 画像共通：統一（ABOUT/CAFÉ/HOMESTAYで効く） */
+    .photo-card img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      /* 高さのブレを抑えて綺麗に揃える */
+      object-fit: cover;
+      display: block;
+    }
+
+    /* もし縦長写真が多くて切れすぎるなら、↑の aspect-ratio を消して
+   下の max-height を使う運用でもOK
+   .photo-card img{ height:auto; max-height:380px; }
+*/
+
+    /* ABOUTだけ特別扱いしていたCSSは削除（統一した方が崩れにくい） */
+
+    /* Caption（使ってる場合のみ） */
+    .photo-caption {
+      padding: .4rem .7rem .5rem;
+      font-size: .75rem;
+      color: var(--muted);
+      background: rgba(250, 247, 242, .9);
+    }
+
+    /* =========================
+   CONCEPT layout
+========================= */
+    .concept-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .concept-text {
+      min-width: 0;
+    }
+
+    .concept-photo {
+      width: 100%;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      display: block;
+    }
+
+    @media (min-width:900px) {
+      .concept-layout {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 3rem;
+      }
+
+      .concept-text {
+        flex: 1;
+      }
+
+      .concept-photo {
+        width: 40%;
+        max-width: 420px;
+        flex-shrink: 0;
+      }
+    }
+
+    /* =========================
+   CAFÉ menu area
+========================= */
+    .menu-toggle {
+      margin-top: 1.5rem;
+      padding: .6rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid #c9b9a3;
+      background: #fffaf3;
+      font-size: .95rem;
+      cursor: pointer;
+      transition: background .2s ease, transform .1s ease;
+    }
+
+    .menu-toggle:hover {
+      background: #f0e2cf;
+      transform: translateY(-1px);
+    }
+
+    .cafe-menu {
+      margin-top: 1rem;
+      padding: 1.2rem 1rem;
+      border-radius: 16px;
+      background: #f9f3ea;
+      border: 1px solid #e3d3bf;
+      display: none;
+    }
+
+    .cafe-menu.open {
+      display: block;
+    }
+
+    .pasta-sub li {
+      margin-bottom: .6rem;
+    }
+
+    .note {
+      font-size: .9rem;
+      opacity: .85;
+    }
+
+    /* PRICE */
+    .price-box {
+      margin-top: 1.5rem;
+      padding: 1rem 1.2rem;
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(224, 214, 198, .7);
+    }
+
+    .price-title {
+      margin: 0 0 .6rem 0;
+      font-size: 1rem;
+      color: var(--text-strong);
+      letter-spacing: .06em;
+    }
+
+    .price-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: .45rem 1rem;
+      align-items: baseline;
+    }
+
+    .price-item {
+      padding: .25rem 0;
+      border-bottom: 1px solid rgba(0, 0, 0, .06);
+    }
+
+    .price-name {
+      color: var(--text);
+    }
+
+    .price-value {
+      font-weight: 700;
+      color: var(--text-strong);
+      white-space: nowrap;
+    }
+
+    /* MAP */
+    .map-wrap {
+      margin-top: 1.2rem;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(224, 214, 198, .7);
+    }
+
+    .map-wrap iframe {
+      width: 100%;
+      height: 360px;
+      display: block;
+    }
+
+    /* Buttons (booking etc.) */
+    .booking-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 12px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: var(--shadow);
+    }
+
+    .btn:hover {
+      opacity: .92;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+      box-shadow: none;
+    }
+
+    /* =========================
+   Footer (一本化しやすい設計)
+========================= */
+    .site-footer {
+      margin-top: 60px;
+      padding: 22px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 200ms ease, transform 200ms ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--text-strong);
+      transform: translateY(-1px);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    /* Policy sections */
+    .policy-section {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .policy-section h2 {
+      font-size: 1.25rem;
+      letter-spacing: .04em;
+      margin-bottom: 1.5rem;
+      color: var(--text-strong);
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 600ms ease, transform 600ms ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        transition: none;
+        transform: none;
+      }
+    }
+
+    /* language visibility */
+    .lang-ja {
+      display: block;
+    }
+
+    .lang-en {
+      display: none;
+    }
+
+    body.show-en .lang-ja {
+      display: none;
+    }
+
+    body.show-en .lang-en {
+      display: block;
+    }
+
+    /* =========================
+   Responsive
+========================= */
+    @media (max-width:800px) {
+
+      .hero,
+      .two-column {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width:640px) {
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-copy h1 {
+        font-size: 1.6rem;
+      }
+
+      section {
+        padding: 1.2rem 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="nav-inner">
+      <div class="logo">
+        <div class="logo-mark">S</div>
+        <span>Sou Community</span>
+      </div>
+      <div style="display:flex;align-items:center;">
+        <nav>
+          <ul>
+            <li><a href="#concept">Concept</a></li>
+            <li><a href="#cafe">Café</a></li>
+            <li><a href="#language">Language</a></li>
+            <li><a href="#hotel-homestay">Hotel/Homestay</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#access">Access</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="lang-toggle">
+          <button id="btn-ja" class="active">JP</button>
+          <span>|</span>
+          <button id="btn-en">EN</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <div class="lang-ja">
+          <h1>日常の中で、世界とつながる。</h1>
+          <p>名古屋・天塚の住宅街に生まれる、小さなカフェ兼コミュニティスペース。</p>
+          <p>コーヒー片手に、ことばや文化の違いを越えて、ゆるやかにつながる時間を。</p>
+        </div>
+        <div class="lang-en">
+          <h1>Connecting everyday life with the world.</h1>
+          <p>A small café and community space in Nagoya.</p>
+          <p>With a cup of coffee, people gently connect across languages and cultures.</p>
+        </div>
+        <div class="hero-buttons">
+          <a href="#cafe" class="btn-primary">Café / カフェについて</a>
+          <a href="#concept" class="btn-ghost">Concept & Story</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="pictures/IMG_4146.jpeg" alt="Sou Community top image">
+      </div>
+    </section>
+
+    <!-- CONCEPT / STORY -->
+    <section id="concept">
+      <h2>CONCEPT / STORY</h2>
+      <div class="section-subtitle">小さなカフェから、世界とつながるきっかけを。</div>
+
+      <div class="concept-layout">
+        <!-- テキスト全体 -->
+        <div class="concept-text">
+          <div class="lang-block lang-ja">
+            <div class="lang-label">日本語</div>
+            <p>Sou Community は、名古屋市西区・天塚町にある一軒家の一角からはじまる、小さなプロジェクトです。</p>
+            <p>「大きな商業施設ではなく、住宅街の中で、日常の延長線上で、世界とつながれる場所があってもいいのではないか？」</p>
+            <p>そんな思いから、このカフェ兼コミュニティスペースの構想が生まれました。</p>
+            <p>ここでは、</p>
+            <ul class="bullet-list">
+              <li>一人でふらっとコーヒーを飲みに来る人</li>
+              <li>近所の方</li>
+              <li>海外からの留学生や旅行者</li>
+            </ul>
+            <p>が、同じ空間で自然にすれ違い、たまに言葉を交わす。そんな「ゆるい国際交流」が生まれる場所を目指しています。</p>
+            <p>学ぶために「がんばる場所」というよりも、心が少しほっとして、「また来たいな」と思える居場所。</p>
+            <p>Sou Community は、日常と世界のあいだにある、小さな“余白”のような場所でありたいと思っています。</p>
+          </div>
+
+          <div class="lang-block lang-en">
+            <div class="lang-label">ENGLISH</div>
+            <p>Sou Community is a small project that begins in a quiet residential area in Ama-tsuka, Nishi Ward,
+              Nagoya.</p>
+            <p>Instead of a large commercial facility, we wanted to create a place where people can feel connected to
+              the world as part of their everyday life.</p>
+            <p>This café and community space was born from that idea.</p>
+            <p>Here, we imagine a place where:</p>
+            <ul class="bullet-list">
+              <li>someone drops by alone for a cup of coffee,</li>
+              <li>neighbors stop in casually,</li>
+              <li>and visitors or students from overseas spend time together,</li>
+            </ul>
+            <p>all sharing the same space in a relaxed way, with small moments of conversation and connection.</p>
+            <p>Rather than a place where you have to “work hard to study”, we hope it will feel like a warm, everyday
+              spot that makes you think, “I’d like to come back.”</p>
+            <p>Sou Community aims to be a small “in-between space” — a gentle margin between everyday life and the wider
+              world.</p>
+          </div>
+        </div>
+
+        <!-- 右側に置きたい写真 -->
+        <img src="pictures/IMG_0184.JPG" alt="Sou Community concept image" class="concept-photo">
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h2>FOUNDER PROFILE</h2>
+      <div class="section-subtitle">代表者プロフィール</div>
+
+      <div class="two-column">
+        <!-- 左：テキスト -->
+        <div>
+          <div class="lang-block lang-ja">
+            <div class="lang-label">日本語</div>
+            <p>イギリス・ロンドンにある University College London（UCL）人類学大学院を修了し、留学と現地での生活を通して、「ことば」と「文化」と「日常」の関係に強い関心を持つようになりました。
+            </p>
+            <p>
+              ロンドンでは、多国籍な友人たちと、キャンパスやカフェでの何気ない会話や、家でのごはん会を重ねるなかで、語学は「勉強」だけで身につくものではなく、日常の関係性や小さな対話の積み重ねの中で育っていくものだと実感しました。
+            </p>
+            <p>名古屋に、そうした経験を活かした「日常とつながる国際交流の場」をつくりたい。その拠点として、このカフェ兼コミュニティスペースを立ち上げました。</p>
+            <p>今後は、カフェ営業に加えて、英語・日本語のレッスンや、海外からの留学生向けホームステイ受け入れなど、人と人が出会い直せる、小さな試みを重ねていく予定です。</p>
+          </div>
+
+          <div class="lang-block lang-en">
+            <div class="lang-label">ENGLISH</div>
+            <p>I completed my Master’s degree in Sound of Anthropology at University College London (UCL) in the UK,
+              where I became deeply interested in the relationship between language, culture, and everyday life.</p>
+            <p>In London, through casual conversations and shared meals with friends from many countries, I realised
+              that language is not something you acquire only through “study”. It grows naturally through daily
+              relationships and repeated small moments of dialogue.</p>
+            <p>In Nagoya, I want to create a place for international connection that is rooted in everyday life. Sou
+              Community is my attempt to build such a space, starting as a small café and community hub.</p>
+            <p>Alongside café operations, I also plan to offer English and Japanese language lessons and, in the future,
+              homestay opportunities for international students — all as small steps to help people meet and re-connect
+              with one another.</p>
+          </div>
+        </div>
+
+        <!-- 右：写真 -->
+        <div class="photo-column">
+          <div class="photo-card">
+            <img src="pictures/IMG_0644.jpeg" alt="Founder profile photo">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAFÉ -->
+    <section id="cafe">
+      <h2>CAFÉ</h2>
+      <div class="section-subtitle">
+        コーヒーとアットホームな雰囲気で、ほっとできる場所を。
+      </div>
+
+      <div class="two-column">
+        <!-- 左カラム（テキスト＋メニュー） -->
+        <div>
+          <div class="lang-block lang-ja">
+            <div class="lang-label">日本語</div>
+            <p>Sou Community のカフェでは、</p>
+            <ul class="bullet-list">
+              <li>コーヒー、紅茶などの飲み物</li>
+              <li>ランチセット、軽食</li>
+            </ul>
+            <p>などを中心に、ゆっくり過ごせる席をご用意する予定です。</p>
+            <p>「毎日でも飲みたくなる、シンプルで丁寧な一杯」を大切にしていきます。</p>
+            <p>
+              オープン当初は、営業日・営業時間を少しコンパクトにしながら、
+              無理なく続けられる形でスタートする予定です。
+              最新の営業情報は、Instagram や本サイトで随時お知らせします。
+            </p>
+          </div>
+
+          <div class="lang-block lang-en">
+            <div class="lang-label">ENGLISH</div>
+            <p>At Sou Community Café, we plan to serve:</p>
+            <ul class="bullet-list">
+              <li>Coffee, tea, and other drinks</li>
+              <li>Lunch sets, light snacks</li>
+            </ul>
+            <p>
+              We focus on offering carefully prepared drinks and dishes that you
+              could enjoy every day.
+            </p>
+            <p>
+              At the beginning, our opening days and hours will be modest so that we
+              can operate sustainably. Updates will be posted on this website and
+              our social media.
+            </p>
+          </div>
+
+          <!-- ▼ ここが「メニューを見る」ボタン＋中身 ▼ -->
+          <button class="menu-toggle" onclick="toggleCafeMenu(this)">
+            メニューを見る / View menu
+          </button>
+
+          <div id="cafe-menu" class="cafe-menu">
+            <h3>MENU（準備中）</h3>
+
+            <div class="lang-block lang-ja">
+              <div class="lang-label">日本語</div>
+
+              <ul class="bullet-list">
+                <li><strong>DRINKS</strong>
+                  <ul class="bullet-list pasta-sub">
+                    <li>ハンドドリップコーヒー（ブルーマウンテン／ゲイシャ／タンザニアなど）<br> ※豆はその時により変わります</li>
+                    <li>紅茶（アールグレイ／マルコポーロ／季節の紅茶 1〜2種ほど）</li>
+                    <li>こだわりの緑茶</li>
+                    <li>ほうじ茶</li>
+                    <li>ドクダミ茶</li>
+                    <li>ソフトドリンク（オレンジ／アップル など）</li>
+                  </ul>
+                </li>
+
+                <li><strong>PASTA</strong>
+                  <ul class="bullet-list pasta-sub">
+                    <li>
+                      <strong>オイル系</strong><br>
+                      アーリオ・オーリオ・ペペロンチーノ／椎茸とほうれん草のパスタ／ボンゴレ・ビアンコ など
+                    </li>
+                    <li>
+                      <strong>トマト系</strong><br>
+                      アラビアータ／ノルマ風パスタ／プッタネスカ／ボンゴレ・ロッソ など
+                    </li>
+                    <li>
+                      <strong>クリーム系</strong><br>
+                      カルボナーラ／海老のトマトクリームパスタ など
+                    </li>
+                    <li>
+                      <strong>和風系</strong><br>
+                      明太子パスタ／和風きのこパスタ など
+                    </li>
+                    <li>
+                      <strong>その他</strong><br>
+                      イカ墨パスタ／ボロネーゼ／ミートソース など
+                    </li>
+                  </ul>
+                  <p class="note">
+                    ※ パスタはランチタイム限定で、パスタセットでのご提供になります。<br>
+                    ※ その日の仕入れ・仕込み状況に合わせて、2種類（A / B）をご用意します。
+                  </p>
+                </li>
+
+                <li><strong>LUNCH SETS</strong>
+                  <ul class="bullet-list pasta-sub">
+                    <li>パスタランチ（その日のパスタ＋サラダ）<span class="note">※毎日ご用意します</span></li>
+                    <li>日替わりスープセット</li>
+                  </ul>
+                </li>
+
+                <li><strong>OCCASIONAL LUNCH SPECIALS</strong> <span class="note">（不定期）</span>
+                  <ul class="bullet-list pasta-sub">
+                    <li>メイン（シチュー / カチャトーラ / 牛肉の赤ワイン煮 など）</li>
+                    <li>メインセット（その日のメイン＋サラダ）<br>
+                      <span class="note">※仕込み状況により「ある日だけ」</span>
+                    </li>
+                  </ul>
+                </li>
+
+                <li><strong>SWEETS</strong>
+                  <ul class="bullet-list pasta-sub">
+                    <li>シナモントースト（バナナ、シナモン）</li>
+                    <li>フレンチトースト</li>
+                  </ul>
+                </li>
+              </ul>
+
+              <p class="note">※正式なメニュー・価格はオープン時に改めてお知らせします。</p>
+            </div>
+
+            <div class="lang-block lang-en">
+              <div class="lang-label">ENGLISH</div>
+
+              <ul class="bullet-list">
+                <li><strong>DRINKS</strong>
+                  <ul class="bullet-list pasta-sub">
+                    <li>
+                      Hand-drip coffee (Blue Mountain / Geisha / Tanzania, etc.)<br>
+                      <span class="note">※ Coffee beans vary depending on availability.</span>
+                    </li>
+                    <li>Tea (Earl Grey / Marco Polo / 1–2 seasonal teas)</li>
+                    <li>Carefully selected Japanese green tea</li>
+                    <li>Hojicha (roasted green tea)</li>
+                    <li>Dokudami herbal tea</li>
+                    <li>Soft drinks (orange juice, apple juice, etc.)</li>
+                  </ul>
+                </li>
+
+                <li><strong>PASTA</strong>
+                  <ul class="bullet-list pasta-sub">
+                    <li><strong>Oil-based</strong><br>Aglio e Olio Peperoncino / Shiitake & spinach pasta / Vongole
+                      Bianco, etc.</li>
+                    <li><strong>Tomato-based</strong><br>Arrabbiata / Pasta alla Norma / Puttanesca / Vongole Rosso,
+                      etc.</li>
+                    <li><strong>Cream-based</strong><br>Carbonara / Shrimp tomato cream pasta, etc.</li>
+                    <li><strong>Japanese-style</strong><br>Mentaiko pasta / Japanese mushroom pasta, etc.</li>
+                    <li><strong>Others</strong><br>Squid ink pasta / Bolognese / Meat sauce, etc.</li>
+                  </ul>
+                  <p class="note">
+                    ※ Pasta is available during lunch time only and served as a pasta set.<br>
+                    ※ Each day, we prepare two pasta options (A / B), selected based on the day’s ingredients and
+                    preparation.
+                  </p>
+                </li>
+
+                <li><strong>LUNCH SETS</strong>
+                  <ul class="bullet-list pasta-sub">
+                    <li>Pasta lunch set (daily pasta + salad) <span class="note">※ Available every day</span></li>
+                    <li>Soup of the day</li>
+                  </ul>
+                </li>
+
+                <li><strong>OCCASIONAL LUNCH SPECIALS</strong> <span class="note">(Available on selected days)</span>
+                  <ul class="bullet-list pasta-sub">
+                    <li>Main dishes (stew / chicken cacciatore / beef braised in red wine, etc.)</li>
+                    <li>Main dish set (daily main + salad)<br><span class="note">※ Available only on days when
+                        preparation allows</span></li>
+                  </ul>
+                </li>
+
+                <li><strong>SWEETS</strong>
+                  <ul class="bullet-list pasta-sub">
+                    <li>Cinnamon toast (banana, cinnamon)</li>
+                    <li>French toast</li>
+                  </ul>
+                </li>
+              </ul>
+
+              <p class="note">※ Official menu items and prices will be announced at the time of opening.</p>
+
+              <!-- PRICE LIST (auto) -->
+              <div class="price-box">
+                <h4 class="price-title">PRICE</h4>
+                <div id="price-list"></div>
+                <p class="note">※ Prices may change depending on season and supply.</p>
+              </div>
+            </div>
+          </div>
+          <!-- ▲ ここまでがメニュー部分 ▲ -->
+        </div>
+
+        <!-- 右カラム（写真） -->
+        <div class="photo-column">
+          <div class="photo-card">
+            <img src="pictures/IMG_3013.jpeg" alt="Sou Café image">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LANGUAGE LESSONS -->
+    <section id="lessons">
+      <h2>LANGUAGE LESSONS</h2>
+      <div class="section-subtitle">英語・日本語レッスンについて</div>
+
+      <div class="two-column">
+        <!-- 日本語ブロック -->
+        <div class="lang-block lang-ja">
+          <div class="lang-label">日本語</div>
+
+          <h3>英語グループレッスン（対面・水曜日）</h3>
+          <p>Sou Community では、少人数制の英語グループレッスンを予定しています。</p>
+          <ul class="bullet-list">
+            <li>場所：名古屋市西区・天塚のカフェスペース</li>
+            <li>曜日：毎週水曜日</li>
+            <li>時間：
+              <ul class="bullet-list">
+                <li>16:15–17:15 … A1–A2 クラス（基礎〜初級）</li>
+                <li>17:30–18:30 … B1–B2 クラス（中級）</li>
+              </ul>
+            </li>
+            <li>料金：月謝制 18,000円（1回60分 × 月4回目安）</li>
+          </ul>
+          <p>レベルの目安として、A1–A2は「英語をやり直したい方・基礎をしっかり学びたい方」（IELTS 5.0 未満）、B1–B2は「日常会話をもっと自然に話せるようになりたい方」（IELTS 5.0〜6.0
+            程度）を想定しています。</p>
+
+          <h3>英語プライベートレッスン</h3>
+          <p>オンラインレッスンを好む方、IELTS 6.5 以上など、C1 レベル相当の方には、個別ニーズに合わせたプライベートレッスンをご用意する予定です。</p>
+          <p>形式：1対1の個別レッスン（対面またはオンライン）／内容・日時は相談のうえ決定します。</p>
+          <p>料金：月謝制 28,000円（1回60分 × 月4回目安）</p>
+
+          <h3>日本語レッスン（オンライン）</h3>
+          <p>海外の留学生・ワーキングホリデー・日本に興味がある方を対象に、日本語のオンラインレッスンも行う予定です。</p>
+          <ul class="bullet-list">
+            <li>形式：オンラインプライベートレッスン（Zoom など）</li>
+            <li>料金：月謝制 28,000円（1回60分 × 月4回目安）</li>
+            <li>レベル：初級〜上級まで相談可能</li>
+          </ul>
+          <p>「日本人とのコミュニケーション」など、日常に近いテーマを通して、日本語と文化を一緒に学ぶスタイルを目指します。</p>
+
+          <p>※内容・スケジュール・料金は、オープン初期は調整する可能性があります。最新情報や体験レッスンのご案内は、Instagram または本サイトでお知らせします。</p>
+        </div>
+
+        <!-- ENGLISH block -->
+        <div class="lang-block lang-en">
+          <div class="lang-label">ENGLISH</div>
+
+          <h3>English Lessons (in-person / Online)</h3>
+          <p>Sou Community will offer English lessons.</p>
+          <ul class="bullet-list">
+            <li>Fee (Group in-person lesson): 18,000 JPY per month (60 minutes × 4 lessons)</li>
+            <li>Fee (Online private lesson): 28,000 JPY per month (60 minutes × 4 lessons)</li>
+          </ul>
+          <h3>Japanese Lessons (Online)</h3>
+          <p>We also plan to provide online Japanese lessons for international students, working holiday makers, and
+            people who are interested in Japan.</p>
+          <ul class="bullet-list">
+            <li>Format: one-to-one online lessons (e.g. via Zoom)</li>
+            <li>Fee: 28,000 JPY per month (60 minutes × 4 lessons)</li>
+            <li>Level: from beginner to advanced (flexible)</li>
+          </ul>
+          <p>Classes focus on real-life situations, such as everyday conversations in Nagoya, communication in cafés,
+            and interacting with local people — combining language learning with cultural understanding.</p>
+
+          <p>* Schedules, details, and fees may be adjusted in the early stages. For the latest information or trial
+            lessons, please contact us by email or Instagram.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- HOMESTAY -->
+    <section id="hotel-homestay">
+      <h2>HOTEL / HOMESTAY (Coming Soon)</h2>
+      <div class="section-subtitle">名古屋で暮らすように滞在する、小さなホテル/ホームステイ。</div>
+
+      <div class="two-column">
+        <div>
+          <div class="lang-block lang-ja">
+            <div class="lang-label">日本語</div>
+            <p>将来的には、海外からの留学生・語学学生・ワーキングホリデーの方向けのホームステイ、また一般客への小さな宿泊スペースの運営も計画しています。</p>
+            <p>名古屋の住宅街で生活に近い形で滞在したい方、カフェや地域の人と交流しながら日本の日常を体験したい方に向けた、あたたかい受け入れの場を目指します。</p>
+            <p>現在は、設備や法的な手続きの確認・準備を進めている段階です。募集開始時には、本サイトで改めてご案内いたします。</p>
+          </div>
+
+          <div class="lang-block lang-en">
+            <div class="lang-label">ENGLISH</div>
+            <p>In the future, we plan to make a small homestay / guest space for exchange students, language school
+              students, working holiday makers, as well as general travelers.</p>
+            <p>Rather than a typical downtown hotel stay, this will be a place where guests can experience everyday
+              Japanese life in a residential area, while connecting with locals and the community through the café.</p>
+            <p>We are currently in the preparation stage, including confirming facilities and legal requirements. Once
+              we are ready to welcome guests, we will make an announcement on this website.</p>
+          </div>
+        </div>
+
+        <div class="photo-card">
+          <img src="https://images.pexels.com/photos/5534035/pexels-photo-5534035.jpeg" alt="Homestay">
+        </div>
+      </div>
+
+      <!-- 🌿 HOMESTAY PRICE -->
+      <h3>HOMESTAY (Price)</h3>
+
+      <div class="lang-block lang-ja">
+        <div class="lang-label">日本語</div>
+        <p><strong>月 70,000円</strong><br>
+          家具付き／光熱費込み。<br>
+          3部屋の住民とシャワー・トイレ共用となります。<br>
+          1階にカフェがあり、ご飯や飲み物、日常的に人と交流できる環境で生活できます。<br>
+          名古屋の住宅街で落ち着いて暮らしながら、日本の日常文化を体験したい方向けの長期滞在プランです。</p>
+      </div>
+
+      <div class="lang-block lang-en">
+        <div class="lang-label">ENGLISH</div>
+        <p><strong>70,000 JPY per month</strong><br>
+          Fully furnished / Utilities included.<br>
+          Bathroom shared by up to 3 room's residents.<br>
+          The café is located on the first floor, providing an environment where you can enjoy meals, drinks, and daily
+          interactions with others.<br>
+          Ideal for international students or long-stay guests who want to experience everyday life in Japan.</p>
+      </div>
+
+      <!-- 🌿 HOTEL PRICE -->
+      <h3>HOTEL / GUEST STAY (Price)</h3>
+
+      <div class="lang-block lang-ja">
+        <div class="lang-label">日本語</div>
+        <p>部屋タイプはHomestayの部屋と同じになります。<br>
+          下記は1泊の宿泊料金です。</p>
+        <ul>
+          <li>1名：7,000円</li>
+          <li>2名：12,000円</li>
+          <li>3名：15,000円</li>
+          <li>4名：18,000円</li>
+        </ul>
+        <p>シンプルで清潔な空間で、住宅街ならではの落ち着いた滞在を体験していただける宿泊スタイルを目指しています。</p>
+      </div>
+
+      <div class="lang-block lang-en">
+        <div class="lang-label">ENGLISH</div>
+        <p>The room types are the same as those used for the Homestay.<br>
+          The rates below are for one night per stay.</p>
+        <ul>
+          <li>1 guest: 7,000 JPY</li>
+          <li>2 guests: 12,000 JPY</li>
+          <li>3 guests: 15,000 JPY</li>
+          <li>4 guests: 18,000 JPY</li>
+        </ul>
+        <p>A simple, comfortable stay in a quiet residential area, offering a relaxed and local experience.</p>
+      </div>
+    </section>
+
+    <!-- OTHER PROJECTS / SERVICES -->
+    <section id="services">
+      <h2>OTHER PROJECTS / SERVICES</h2>
+      <div class="section-subtitle">
+        Sou Community から広がる、IT / 国際交流サポート。
+      </div>
+
+      <div class="lang-block lang-ja">
+        <div class="lang-label">日本語</div>
+        <p>
+          Sou Community では、カフェ、宿泊、言語レッスンのほかに、HP作成や海外経験を後押しするいくつかのサービスも行っています。
+        </p>
+        <ul class="bullet-list">
+          <li>
+            <strong>HP 制作サポート</strong><br>
+            想いやストーリーがきちんと伝わる、温度のあるホームページ作りをお手伝いします。
+            デザイン、文章構成、英語ページの作成まで一緒に考えます。
+            期間目安：最短 1 週間〜／料金：15万円〜。<br>
+            （本サイト Sou Community（金銭取引を紐付ける場合）は約 8 週間・75万円規模／急ぎ対応は 4 週間・100万円目安）<br>
+            （本サイト Sou Community (金銭取引を紐付けない場合) は約 4 週間・25万円規模／急ぎ対応は 2 週間・40万円目安）<br>
+
+            <small>
+              ※ サイトは HTML / CSS / JavaScript などのプログラミング言語で構築しており、
+              デザインだけでなく機能面や表示パフォーマンスも意識した制作を行っています。<br>
+              ※ 公開後の運用サポート（テキスト修正・画像差し替え・軽微なレイアウト調整 など）も
+              月額 1万円 の保守プランで対応可能です。
+            </small>
+          </li>
+          <li>
+            <strong>海外大学・大学院進学サポート</strong><br>
+            出願スケジュールの整理、必要書類手続きのサポート、エッセイ添削などを個別にサポートします。<br>
+            特に、UCL 初め、イギリスの大学への出願サポートに強みがあります。<br>
+            料金目安：エッセイ添削 1 本 3〜5 万円、フルサポート 10 万円程度。
+          </li>
+          <li>
+            <strong>語学スクール・サマースクール仲介</strong><br>
+            海外の語学学校やサマースクールに興味がある方に向けて、
+            プログラム選びや申込手続きのサポートを行います。<br>
+            イギリスの学校にネットワークがあるため、基本的にイギリスの学校をおすすめしています。<br>
+            仲介手数料：プログラム費用の 10%
+          </li>
+        </ul>
+      </div>
+
+      <div class="lang-block lang-en">
+        <div class="lang-label">ENGLISH</div>
+
+        <p>
+          In addition to the café, accommodation, and language lessons,
+          Sou Community also offers several services, such as website creation
+          and support for overseas experiences.
+        </p>
+
+        <ul class="bullet-list">
+
+          <li>
+            <strong>Website creation support</strong><br>
+            I help you build warm, story-driven websites where your ideas and story
+            are clearly communicated.
+            Together, we will plan the design, page structure, and English content.<br>
+            Estimated timeline: from 1 week / Fee: approx. 150,000–300,000 yen.<br>
+
+            (For this Sou Community site with payment integration: approx. 8 weeks / around 750,000 yen;
+            expedited service: 4 weeks / around 1,000,000 yen)<br>
+            (For this Sou Community site without payment integration: approx. 4 weeks / around 250,000 yen;
+            expedited service: 2 weeks / around 400,000 yen)<br>
+
+            <small>
+              ※ Websites are built using programming languages such as HTML, CSS, and JavaScript,
+              with attention not only to design, but also usability and performance.<br>
+              ※ Post-launch maintenance support (text updates, image replacement, minor layout
+              adjustments, etc.) is also available with a maintenance plan at
+              10,000 yen per month.
+            </small>
+          </li>
+
+
+          <li>
+            <strong>Support for overseas university / graduate school applications</strong><br>
+            Individual support for organising application schedules, preparing documents,
+            and editing essays and personal statements.<br>
+            Especially strong in supporting applications to UK universities.<br>
+            Price guide: 30,000–50,000 yen per essay /
+            around 100,000 yen for full application support.
+          </li>
+
+          <li>
+            <strong>Language school & summer school coordination</strong><br>
+            Support for choosing suitable programmes abroad and
+            assistance with the application process.<br>
+            With a network of schools in the UK, I mainly recommend UK-based programmes.<br>
+            Coordination fee: 10% of the programme fee
+          </li>
+
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- BOOKING & PAYMENT -->
+    <section id="booking-payment">
+      <h2>BOOKING & PAYMENT</h2>
+      <div class="section-subtitle">予約・支払いについて</div>
+
+      <div class="lang-block lang-ja">
+        <div class="lang-label">日本語</div>
+        <p>
+          ご予約・お申し込みは、Stripe の決済リンクから事前決済をお願いいたします。
+          決済後、内容を確認のうえ <strong>24時間以内</strong> にメールでご連絡します。
+        </p>
+        <ul class="bullet-list">
+          <li><strong>宿泊</strong>：決済後、確認メールをお送りした時点で予約確定となります。</li>
+          <li><strong>語学レッスン (オンライン)</strong>：決済後、日時確定のメールをお送りした時点で予約確定となります。</li>
+        </ul>
+        <p class="note">
+          ※ 24時間以内にメールが届かない場合は、迷惑メールフォルダをご確認のうえ、
+          お問い合わせフォームまたはSNSからご連絡ください。<br>
+          ※ 対面レッスン（言語、野球）の方は、月初めに直接お支払いとなります。
+        </p>
+      </div>
+
+      <div class="lang-block lang-en">
+        <div class="lang-label">ENGLISH</div>
+        <p>
+          To book a stay or a lesson, please complete payment in advance via our Stripe payment link.
+          After payment, we will review your request and contact you by email within <strong>24 hours</strong>.
+        </p>
+        <ul class="bullet-list">
+          <li><strong>Hotel/Guest stay</strong>: Your booking is confirmed once you receive our confirmation email.</li>
+          <li><strong>Language lessons (online)</strong>: Your lesson is confirmed once you receive our scheduling
+            confirmation
+            email.</li>
+        </ul>
+        <p class="note">
+          ※ If you don’t receive an email within 24 hours, please check your spam/junk folder
+          and contact us via the contact form or social media.<br>
+          ※ For in-person lessons (language, baseball), payment is made directly at the beginning of each Month.
+        </p>
+      </div>
+
+      <!-- ここにStripeリンク（ボタン）を置く想定：あとで差し替えやすい -->
+      <div class="btn-row">
+        <a class="btn" href="PASTE_STRIPE_LINK_HERE" target="_blank" rel="noopener">Pay / Book with Stripe</a>
+      </div>
+    </section>
+
+
+
+    <!-- ACCESS -->
+    <section id="access">
+      <h2>ACCESS</h2>
+      <div class="section-subtitle">アクセス</div>
+
+      <div class="lang-block lang-ja">
+        <div class="lang-label">日本語</div>
+        <p>Sou Community は、名古屋市西区にあります。</p>
+        <p>最寄り駅や詳しい所在地は、オープン時にカフェ公式SNSと本サイトでご案内いたします。</p>
+      </div>
+
+      <div class="lang-block lang-en">
+        <div class="lang-label">ENGLISH</div>
+        <p>Sou Community is located in a quiet residential area in Ama-tsuka, Nishi Ward, Nagoya.</p>
+        <p>The nearest station and full address will be announced when the café officially opens, via this website and
+          our social media channels.</p>
+      </div>
+
+      <div class="map-wrap">
+        <!-- ↓ここをGoogleマップの埋め込みiframeに差し替え -->
+        <iframe src="PASTE_YOUR_GOOGLE_MAP_IFRAME_SRC_HERE" width="600" height="450" style="border:0;"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </section>
+
+    <!-- FUTURE PLAN: BASEBALL -->
+    <section id="baseball-lessons">
+      <h2>BASEBALL LESSONS <span class="note">（Future plan）</span></h2>
+      <div class="section-subtitle">野球教室（将来の構想）</div>
+
+      <div>
+        <div class="lang-block lang-ja">
+          <div class="lang-label">日本語</div>
+          <p>
+            将来、生徒が<strong>3人以上</strong>集まった場合、野球教室の運用も考えています。
+          </p>
+          <ul class="bullet-list">
+            <li><strong>場所（候補）</strong>：上名古屋公園／志賀公園／旧名古屋北リトルグランド</li>
+            <li><strong>曜日（候補）</strong>：火曜・または木曜・午後（生徒と要相談）</li>
+            <li><strong>時間（候補）</strong>：16:30〜18:30</li>
+            <li><strong>回数</strong>：月4回（各2時間）</li>
+            <li><strong>月謝</strong>：20,000円</li>
+            <li><strong>レベル</strong>：初心者〜プロまで</li>
+          </ul>
+
+          <p>
+            こう見えて、昔は野球を真剣に習い、毎日厳しい練習を積んできました。当時は、野球部なのに長距離を走らされたり、ノックの最後に必ず戻ってくる時はへッドスライディング、年中坊主など謎ルールも沢山あり、あまり好きではありませんでしたが、終わってみると、時々野球をしたくなったり、せっかく積んできた自分の技術を何か継承出来ないかなと思ったりするようになりました。そのため、このプロジェクトを立ち上げました。<br>
+            僕の方針は、楽しく、論理的に(練習したらきちんと上手くなる仕組み)、取り組んでいきます。<br>
+            野球に興味ある方、上達したい方、ぜひいらして下さい。(Instagramの方へ連絡して下さい。)<br>
+            人数が3人以上集まれば、練習場所の調整ができ次第、この野球教室を始めたいと思っています。
+          </p>
+        </div>
+
+        <div class="lang-block lang-en">
+          <div class="lang-label">ENGLISH</div>
+          <p>
+            In the future, if I have <strong>3 or more students</strong>, I may start running a small baseball lesson
+            programme.
+          </p>
+          <ul class="bullet-list">
+            <li><strong>Location (tentative)</strong>: Kamina-goya Park / Shiga Park / Old Nagoya Kita Little Grand</li>
+            <li><strong>Possible days</strong>: Tuesday or Thursday afternoons (to be discussed)</li>
+            <li><strong>Time (example)</strong>: 16:30–18:00</li>
+            <li><strong>Frequency</strong>: 4 times per month (2 hours each)</li>
+            <li><strong>Monthly fee</strong>: ¥20,000</li>
+            <li><strong>Level</strong>: beginners to professional players</li>
+          </ul>
+
+          <p>
+            Believe it or not, I used to play baseball seriously and trained hard every day. Although I didn’t like
+            some of the strange rules we had (like running long distances even though we were in the baseball club,
+            always doing head-first slides when returning after fielding ground balls, and having to have a shaved head
+            all year round), looking back now, I sometimes feel like playing baseball again and wonder if I can pass on
+            the skills I worked hard to develop. This is why I started this project.<br>
+            My approach will be fun and logical (with a system that ensures improvement through practice).<br>
+            If you are interested in baseball and want to improve, please join us! (please contact me via
+            Instagram)<br>
+            Once I can arrange a practice location and gather at least 3 students, I would like to start this baseball
+            lesson programme.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2>CONTACT</h2>
+      <div class="section-subtitle">お問い合わせ</div>
+
+      <div class="lang-block lang-ja">
+        <div class="lang-label">日本語</div>
+        <p>カフェやイベント、言語レッスン、宿泊など、ご質問・ご相談は、下記のメールアドレス、またはインスタグラムまでお気軽にご連絡ください。</p>
+        <div class="contact-links">
+          <p>Mail: <a href="mailto:info@sou-community.com">info@sou-community.com</a><br></p>
+          <p>最新情報・営業日・イベント告知は Instagram で更新しています。</p>
+          <a href="https://www.instagram.com/chefcanvas_20" target="_blank" class="insta-button">
+            📷 Instagram を見る
+          </a>
+        </div>
+      </div>
+      <div class="lang-block lang-en">
+        <div class="lang-label">ENGLISH</div>
+        <p>If you have any questions (about the café, language lessons, events, accommodation, etc.), please feel free
+          to contact us by email or via Instagram.</p>
+        <p>Mail: <a href="mailto:info@sou-community.com">info@sou-community.com</a><br></p>
+        <p>The latest updates, opening days, and event information will be shared on our Instagram.</p>
+        <a href="https://www.instagram.com/chefcanvas_20" target="_blank" class="insta-button">
+          📷 Instagram を見る
+        </a>
+      </div>
+    </section>
+    <footer class="site-footer">
+      <div class="footer-links">
+        <a href="#refund-privacy">Refund / Privacy Policy</a>
+        <a href="#terms">Terms</a>
+      </div>
+      <div class="note">
+        © <span id="year"></span> Sou Community
+      </div>
+    </footer>
+  </main>
+
+  <!-- ポリシーセクション -->
+  <section id="refund-privacy" class="policy-section reveal">
+    <h2>Refund / Privacy Policy</h2>
+
+    <div class="lang-block lang-ja">
+      <div class="lang-label">日本語</div>
+      <p>
+        お支払い後 <strong>24時間以内</strong> にご連絡いただいた場合に限り、返金対応を行います。<br>
+        それ以降のキャンセルについては、原則として返金不可となります。<br>
+        特別な事情がある場合は、個別にご相談ください。<br>
+        Sou Community は、お客様の個人情報を適切に管理し、
+        サービス提供および必要な連絡のためにのみ利用します。
+      </p>
+    </div>
+
+    <div class="lang-block lang-en">
+      <div class="lang-label">ENGLISH</div>
+      <p>
+        Refunds are available only if you contact us within <strong>24 hours</strong> after payment.<br>
+        After that period, refunds are generally not available.<br>
+        Exceptional cases may be reviewed individually.<br>
+        Sou Community respects your privacy and uses personal information
+        only for providing services and necessary communication.
+        Payments are processed securely via Stripe.
+      </p>
+    </div>
+  </section>
+
+  <section id="terms" class="policy-section">
+    <h2>Terms of Service</h2>
+
+    <div class="lang-block lang-ja">
+      <div class="lang-label">日本語</div>
+      <p>
+        Sou Community が提供するカフェ、宿泊、語学レッスン、イベント等のサービスをご利用いただく際には、
+        本規約に同意したものとみなします。
+      </p>
+    </div>
+
+    <div class="lang-block lang-en">
+      <div class="lang-label">ENGLISH</div>
+      <p>
+        By using the services provided by Sou Community, including café, accommodation,
+        language lessons, and events, you agree to these Terms of Service.
+      </p>
+    </div>
+  </section>
+
+
+
+  <script>
+    const btnJa = document.getElementById('btn-ja');
+    const btnEn = document.getElementById('btn-en');
+
+    btnJa.addEventListener('click', () => {
+      document.body.classList.remove('show-en');
+      btnJa.classList.add('active');
+      btnEn.classList.remove('active');
+    });
+
+    btnEn.addEventListener('click', () => {
+      document.body.classList.add('show-en');
+      btnEn.classList.add('active');
+      btnJa.classList.remove('active');
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+
+  <script>
+    function toggleCafeMenu(btn) {
+      const menu = document.getElementById("cafe-menu");
+
+      if (menu.classList.contains("open")) {
+        menu.classList.remove("open");
+        btn.textContent = "メニューを見る / View menu";
+      } else {
+        menu.classList.add("open");
+        btn.textContent = "メニューを閉じる / Hide menu";
+      }
+    }
+  </script>
+
+  <script>
+    //  ここだけ編集すれば価格が変わる（後から差し替え超ラク）
+    const PRICES = {
+      en: [
+        { name: "Hand-drip coffee", value: "¥600–¥800" },
+        { name: "Tea", value: "¥600–¥800" },
+        { name: "Pasta lunch set (salad + pasta)", value: "¥1,400–¥1,600" },
+        { name: "Soup of the day set", value: "¥750" },
+        { name: "Cinnamon toast", value: "¥550" }
+      ],
+      ja: [
+        { name: "ハンドドリップコーヒー", value: "600〜800円" },
+        { name: "紅茶", value: "600〜800円" },
+        { name: "パスタランチ（サラダ＋パスタ）", value: "1,400〜1,600円" },
+        { name: "日替わりスープセット", value: "750円" },
+        { name: "シナモントースト", value: "550円" }
+      ]
+    };
+
+    // どっち表示するか（あなたのHPがJP/EN切替式なら、今の状態に合わせて変えられる）
+    // まずは英語固定でOK → 'en' を 'ja' にすれば日本語になる
+    const currentLang = "en";
+
+    function renderPrices(lang = "en") {
+      const target = document.getElementById("price-list");
+      if (!target) return;
+
+      const rows = PRICES[lang].map(item => `
+      <div class="price-item price-grid">
+        <div class="price-name">${item.name}</div>
+        <div class="price-value">${item.value}</div>
+      </div>
+    `).join("");
+
+      target.innerHTML = rows;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderPrices(currentLang);
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const els = document.querySelectorAll(".reveal");
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("is-visible");
+            io.unobserve(e.target); // 1回だけ表示したいなら
+          }
+        });
+      }, { threshold: 0.12 });
+
+      els.forEach(el => io.observe(el));
+    });
+  </script>
+
+
+</body>
+
+</html>
