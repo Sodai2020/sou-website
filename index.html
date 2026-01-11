@@ -7,6 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description"
     content="Sou Community（ソウ・コミュニティ）は、名古屋市西区・天塚町に生まれる小さなカフェ兼コミュニティスペースです。コーヒーと日常の会話を通して、地域の人と海外の人がゆるやかにつながる場所を目指しています。" />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://nimble-figolla-dc3c40.netlify.app/" />
+
+  <meta property="og:title" content="Sou Community" />
+  <meta property="og:description" content="Cafe & Community Space in Nagoya" />
+  <meta property="og:url" content="https://nimble-figolla-dc3c40.netlify.app/" />
+  <meta property="og:type" content="website" />
+
   <style>
     :root {
       --bg: #f5f1ea;
@@ -529,11 +537,33 @@
       text-underline-offset: 4px;
     }
 
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 10px;
+      transition: 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+      background: rgba(0, 0, 0, 0.04);
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    .footer-links a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+
     /* Policy sections */
     .policy-section {
       margin-top: 4rem;
       padding-top: 2rem;
       border-top: 1px solid var(--border);
+      scroll-margin-top: 100px;
     }
 
     .policy-section h2 {
@@ -546,8 +576,8 @@
     /* Scroll reveal */
     .reveal {
       opacity: 0;
-      transform: translateY(14px);
-      transition: opacity 600ms ease, transform 600ms ease;
+      transform: translateY(12px);
+      transition: 0.7s ease;
     }
 
     .reveal.is-visible {
@@ -942,12 +972,13 @@
 
               <p class="note">※ Official menu items and prices will be announced at the time of opening.</p>
 
-              <!-- PRICE LIST (auto) -->
+              <!-- PRICE LIST (auto) (価格表示されるやつ)
               <div class="price-box">
                 <h4 class="price-title">PRICE</h4>
                 <div id="price-list"></div>
                 <p class="note">※ Prices may change depending on season and supply.</p>
-              </div>
+              </div> -->
+
             </div>
           </div>
           <!-- ▲ ここまでがメニュー部分 ▲ -->
@@ -973,7 +1004,7 @@
           <div class="lang-label">日本語</div>
 
           <h3>英語グループレッスン（対面／オンライン・水曜日）</h3>
-          <p>Sou Community では、少人数制の英語グループレッスンを予定しています。</p>
+          <p>Sou Community では、英語グループレッスンを予定しています。</p>
           <ul class="bullet-list">
             <li>場所：オンライン、もしくはカフェスペース</li>
             <li>曜日：毎週水曜日</li>
@@ -1134,12 +1165,12 @@
             想いやストーリーがきちんと伝わる、温度のあるホームページ作りをお手伝いします。
             デザイン、文章構成、英語ページの作成まで一緒に考えます。
             期間目安：最短 1 週間〜／料金：15万円〜。<br>
-            （本サイト Sou Community（金銭取引を紐付ける場合）は約 8 週間・75万円規模／急ぎ対応は 4 週間・100万円目安）<br>
-            （本サイト Sou Community (金銭取引を紐付けない場合) は約 4 週間・25万円規模／急ぎ対応は 2 週間・40万円目安）<br>
+            （本サイト Sou Community (金銭取引を紐付けない場合) は約 4 週間・20万円規模／急ぎ対応は 2 週間・40万円目安）<br>
 
             <small>
               ※ サイトは HTML / CSS / JavaScript などのプログラミング言語で構築しており、
               デザインだけでなく機能面や表示パフォーマンスも意識した制作を行っています。<br>
+              ※ 本サイトは金銭取引も紐付いていますが、現在は金銭取引を紐づけるHP制作は承っていません。<br>
               ※ 公開後の運用サポート（テキスト修正・画像差し替え・軽微なレイアウト調整 など）も
               月額 1万円 の保守プランで対応可能です。
             </small>
@@ -1178,17 +1209,16 @@
             Together, we will plan the design, page structure, and English content.<br>
             Estimated timeline: from 1 week / Fee: approx. 150,000–300,000 yen.<br>
 
-            (For this Sou Community site with payment integration: approx. 8 weeks / around 750,000 yen;
-            expedited service: 4 weeks / around 1,000,000 yen)<br>
-            (For this Sou Community site without payment integration: approx. 4 weeks / around 250,000 yen;
+            (For this Sou Community site without payment integration: approx. 4 weeks / around 200,000 yen;
             expedited service: 2 weeks / around 400,000 yen)<br>
 
             <small>
               ※ Websites are built using programming languages such as HTML, CSS, and JavaScript,
               with attention not only to design, but also usability and performance.<br>
+              ※ Currently, I do not accept website creation requests that involve payment integration.<br>
               ※ Post-launch maintenance support (text updates, image replacement, minor layout
               adjustments, etc.) is also available with a maintenance plan at
-              10,000 yen per month.
+              10,000 yen per month.<br>
             </small>
           </li>
 
@@ -1327,7 +1357,7 @@
           <ul class="bullet-list">
             <li><strong>Location (tentative)</strong>: Kamina-goya Park / Shiga Park / Old Nagoya Kita Little Grand</li>
             <li><strong>Possible days</strong>: Tuesday or Thursday afternoons (to be discussed)</li>
-            <li><strong>Time (example)</strong>: 16:30–18:00</li>
+            <li><strong>Time (example)</strong>: 16:30–18:30</li>
             <li><strong>Frequency</strong>: 4 times per month (2 hours each)</li>
             <li><strong>Monthly fee</strong>: ¥20,000</li>
             <li><strong>Level</strong>: beginners to professional players</li>
@@ -1346,6 +1376,101 @@
             lesson programme.
           </p>
         </div>
+      </div>
+    </section>
+
+    <div class="footer-links">
+      <a href="#refund-policy">Refund Policy</a>
+      <a href="#terms">Terms</a>
+      <a href="#privacy">Privacy</a>
+    </div>
+
+    <section class="policy-section" id="refund-policy">
+      <h2>Refund Policy</h2>
+
+      <div class="lang-block lang-ja">
+        <div class="lang-label">日本語</div>
+
+        <p><strong>対象</strong>：語学レッスン／各種サポート（HP制作・出願サポート等）／イベント等の事前決済</p>
+
+        <ul class="bullet-list">
+          <li><strong>レッスン（単発・月謝）</strong>：開始（または初回実施）<strong>7日前まで</strong>は全額返金。以降は原則返金不可。</li>
+          <li><strong>イベント</strong>：開催<strong>7日前まで</strong>は全額返金。以降は原則返金不可。</li>
+          <li><strong>制作・サポート系（HP制作／出願サポート等）</strong>：着手後は工数が発生するため、進行状況に応じた返金となります（未着手分のみ返金）。</li>
+          <li><strong>主催者都合による中止</strong>：全額返金します。</li>
+        </ul>
+
+        <p class="note">※返金手続きは原則として決済に使用した方法（Stripe）経由で行います。反映まで数日かかる場合があります。</p>
+      </div>
+
+      <div class="lang-block lang-en">
+        <div class="lang-label">ENGLISH</div>
+
+        <p><strong>Applies to</strong>: language lessons, support services (website creation, application support), and
+          pre-paid events.</p>
+
+        <ul class="bullet-list">
+          <li><strong>Lessons (single / monthly)</strong>: Full refund up to <strong>7 days</strong> before the lesson
+            start (or first session). After that, refunds are generally not available.</li>
+          <li><strong>Events</strong>: Full refund up to <strong>7 days</strong> before the event date. After that,
+            refunds are generally not available.</li>
+          <li><strong>Services (website creation / application support)</strong>: Once work has started, refunds are
+            based on progress (unused / not-yet-started portion only).</li>
+          <li><strong>Organizer cancellation</strong>: Full refund.</li>
+        </ul>
+
+        <p class="note">Refunds are processed through the original payment method via Stripe. It may take a few business
+          days to appear.</p>
+      </div>
+    </section>
+
+    <section class="policy-section" id="terms">
+      <h2>Terms</h2>
+
+      <div class="lang-block lang-ja">
+        <div class="lang-label">日本語</div>
+        <ul class="bullet-list">
+          <li>本サイト上の情報は予告なく変更される場合があります。</li>
+          <li>提供内容（レッスン・イベント等）は準備状況により変更となる場合があります。</li>
+          <li>迷惑行為・他のお客様の妨げとなる行為があった場合、利用をお断りすることがあります。</li>
+          <li>決済後の各種連絡は、登録いただいたメールアドレス宛に行います。</li>
+        </ul>
+      </div>
+
+      <div class="lang-block lang-en">
+        <div class="lang-label">ENGLISH</div>
+        <ul class="bullet-list">
+          <li>Information on this website may change without notice.</li>
+          <li>Services (lessons, events, etc.) may be updated depending on availability and preparation.</li>
+          <li>We may refuse service in cases of harassment or disruptive behavior.</li>
+          <li>Post-payment communication will be sent to the email address provided at checkout.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="policy-section" id="privacy">
+      <h2>Privacy</h2>
+
+      <div class="lang-block lang-ja">
+        <div class="lang-label">日本語</div>
+        <p>Sou Community は、予約・決済・お問い合わせ対応のために、氏名／メールアドレス等の情報を取得する場合があります。</p>
+        <ul class="bullet-list">
+          <li>取得した情報は、連絡・提供サービスの運用・本人確認（必要な場合）にのみ利用します。</li>
+          <li>決済は Stripe を利用し、カード情報は当方で保持しません。</li>
+          <li>法令に基づく場合を除き、本人の同意なく第三者に提供しません。</li>
+        </ul>
+      </div>
+
+      <div class="lang-block lang-en">
+        <div class="lang-label">ENGLISH</div>
+        <p>Sou Community may collect personal information (such as your name and email) for reservations, payments, and
+          inquiries.</p>
+        <ul class="bullet-list">
+          <li>We use this information only to communicate with you, operate our services, and verify identity when
+            necessary.</li>
+          <li>Payments are processed by Stripe. We do not store your card details.</li>
+          <li>We do not share your information with third parties without consent, unless required by law.</li>
+        </ul>
       </div>
     </section>
 
@@ -1377,9 +1502,12 @@
         </a>
       </div>
     </section>
+
+
     <footer class="site-footer">
       <div class="footer-links">
-        <a href="#refund-privacy">Refund / Privacy Policy</a>
+        <a href="#refund-policy">Refund Policy</a>
+        <a href="#privacy">Privacy Policy</a>
         <a href="#terms">Terms</a>
       </div>
       <div class="note">
@@ -1388,7 +1516,8 @@
     </footer>
   </main>
 
-  <!-- ポリシーセクション -->
+
+  <!-- ポリシーセクション 
   <section id="refund-privacy" class="policy-section reveal">
     <h2>Refund / Privacy Policy</h2>
 
@@ -1414,7 +1543,7 @@
         Payments are processed securely via Stripe.
       </p>
     </div>
-  </section>
+  </section> 
 
   <section id="terms" class="policy-section">
     <h2>Terms of Service</h2>
@@ -1434,7 +1563,7 @@
         language lessons, and events, you agree to these Terms of Service.
       </p>
     </div>
-  </section>
+  </section> -->
 
 
 
@@ -1529,6 +1658,19 @@
       els.forEach(el => io.observe(el));
     });
   </script>
+
+  <script>
+    const revealTargets = document.querySelectorAll(".reveal");
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("is-visible");
+      });
+    }, { threshold: 0.12 });
+
+    revealTargets.forEach(el => io.observe(el));
+  </script>
+
 
 
 </body>
